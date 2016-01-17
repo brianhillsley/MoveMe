@@ -93,6 +93,8 @@ Describe any challenges encountered while building the app.
 
 I actually redid the whole application due to a file system messup. I saw redoing both part 1 and part 2 of this project as extra review. So being patient and redoing the application was the hard part. For that reason the time spent on Project 1 has been increased to reflect redoing that part to include some of the extra features.
 
+Additionally, CocoaPods, the dependency manager, continues to give me a hard time as I need to reinstall it on every reboot, which I have done 3 times. Something to do with permissions and security of OS El Capitan and Ruby Gems made it so I had to try several ways to install cocoapods.
+
 ## License
 
 Copyright 2016 Brian Hillsley (as a part of Code Path University)
