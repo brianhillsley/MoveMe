@@ -16,37 +16,30 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gwe-qp-mfz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentInset" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Ih-IX-Bsc">
-                                    <size key="itemSize" width="150" height="100"/>
+                                    <size key="itemSize" width="150" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="Mkd-jS-YkV" customClass="MovieCell" customModule="MoveMe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="150" height="100"/>
+                                        <rect key="frame" x="0.0" y="66" width="150" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="pR1-XI-0fM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P7v-6h-Xw3">
-                                                    <rect key="frame" x="8" y="71" width="134" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="pR1-XI-0fM" id="P68-VU-PGh"/>
-                                            <outlet property="movieTitle" destination="P7v-6h-Xw3" id="KR3-Wu-2CV"/>
+                                            <outlet property="posterView" destination="pR1-XI-0fM" id="tFM-Vd-7iX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -76,26 +69,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QHA-tA-Vor">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hH3-Qx-Bnu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hbj-IV-e7V">
-                                <rect key="frame" x="0.0" y="342" width="320" height="189"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">This movie is about Dobby, the elf from Harry Potter. He settles down with a girl he met outside Gringots and intends to marry her. Little did he know that she was a horcrux.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QHA-tA-Vor">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" id="umm-dI-1OQ">
+                                        <rect key="frame" x="0.0" y="568" width="320" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The movie description goes here. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dej-lQ-Jsi">
+                                                <rect key="frame" x="8" y="37" width="304" height="97"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fxL-bY-cno">
+                                                <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="nux-T8-aQ8"/>
                     <connections>
-                        <outlet property="imageView" destination="QHA-tA-Vor" id="Ggm-NI-L7a"/>
-                        <outlet property="movieInfo" destination="Hbj-IV-e7V" id="ob0-7R-oYw"/>
+                        <outlet property="infoView" destination="umm-dI-1OQ" id="ORu-7B-1o4"/>
+                        <outlet property="movieDescriptionLabel" destination="dej-lQ-Jsi" id="e1I-Ie-SQX"/>
+                        <outlet property="movieTitleLabel" destination="fxL-bY-cno" id="oVP-Lo-jp3"/>
+                        <outlet property="posterView" destination="QHA-tA-Vor" id="zA4-gE-mer"/>
+                        <outlet property="scrollView" destination="hH3-Qx-Bnu" id="194-H8-3kt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylN-nM-zJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,7 +118,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1Cy-AM-JMQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oih-X5-QVQ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MoviesNavController" automaticallyAdjustsScrollViewInsets="NO" id="Oih-X5-QVQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0xe-dV-heF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

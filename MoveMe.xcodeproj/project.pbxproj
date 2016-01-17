@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F2B5DAC64876F65BF2ECE48 /* Pods_MoveMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC931A20460E23148EC751A3 /* Pods_MoveMe.framework */; };
 		D052930F1C4AB70A00EEF1EA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052930E1C4AB70900EEF1EA /* MovieCell.swift */; };
 		D05293111C4AB7CC00EEF1EA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05293101C4AB7CC00EEF1EA /* DetailViewController.swift */; };
 		D0A72E2C1C4A0EB300DEF741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A72E2B1C4A0EB300DEF741 /* AppDelegate.swift */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		977539CB3D367929FBF2E146 /* Pods-MoveMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveMe/Pods-MoveMe.debug.xcconfig"; sourceTree = "<group>"; };
+		9C45B87F262BC4E7006D52FC /* Pods-MoveMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoveMe/Pods-MoveMe.release.xcconfig"; sourceTree = "<group>"; };
+		AC931A20460E23148EC751A3 /* Pods_MoveMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D052930E1C4AB70900EEF1EA /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieCell.swift; path = ../MovieCell.swift; sourceTree = "<group>"; };
 		D05293101C4AB7CC00EEF1EA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
 		D0A72E281C4A0EB300DEF741 /* MoveMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,12 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2B5DAC64876F65BF2ECE48 /* Pods_MoveMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AF5B762F35B2000578F0C09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC931A20460E23148EC751A3 /* Pods_MoveMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EF908B8E35F091104E49036 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				977539CB3D367929FBF2E146 /* Pods-MoveMe.debug.xcconfig */,
+				9C45B87F262BC4E7006D52FC /* Pods-MoveMe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D05293121C4AC4A600EEF1EA /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
@@ -48,11 +70,21 @@
 			name = viewcontrollers;
 			sourceTree = "<group>";
 		};
+		D05293131C4AD43900EEF1EA /* views */ = {
+			isa = PBXGroup;
+			children = (
+				D052930E1C4AB70900EEF1EA /* MovieCell.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		D0A72E1F1C4A0EB300DEF741 = {
 			isa = PBXGroup;
 			children = (
 				D0A72E2A1C4A0EB300DEF741 /* MoveMe */,
 				D0A72E291C4A0EB300DEF741 /* Products */,
+				9EF908B8E35F091104E49036 /* Pods */,
+				4AF5B762F35B2000578F0C09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,8 +99,8 @@
 		D0A72E2A1C4A0EB300DEF741 /* MoveMe */ = {
 			isa = PBXGroup;
 			children = (
+				D05293131C4AD43900EEF1EA /* views */,
 				D05293121C4AC4A600EEF1EA /* viewcontrollers */,
-				D052930E1C4AB70900EEF1EA /* MovieCell.swift */,
 				D0A72E2B1C4A0EB300DEF741 /* AppDelegate.swift */,
 				D0A72E2F1C4A0EB300DEF741 /* Main.storyboard */,
 				D0A72E321C4A0EB300DEF741 /* Assets.xcassets */,
@@ -85,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0A72E3A1C4A0EB300DEF741 /* Build configuration list for PBXNativeTarget "MoveMe" */;
 			buildPhases = (
+				E0D5EEE2A677070CDFCB5F46 /* Check Pods Manifest.lock */,
 				D0A72E241C4A0EB300DEF741 /* Sources */,
 				D0A72E251C4A0EB300DEF741 /* Frameworks */,
 				D0A72E261C4A0EB300DEF741 /* Resources */,
+				953669EE02F81DF1031DB818 /* Embed Pods Frameworks */,
+				57902B3D8CB5C24B7443074F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +179,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57902B3D8CB5C24B7443074F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoveMe/Pods-MoveMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		953669EE02F81DF1031DB818 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoveMe/Pods-MoveMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0D5EEE2A677070CDFCB5F46 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0A72E241C4A0EB300DEF741 /* Sources */ = {
@@ -264,23 +347,27 @@
 		};
 		D0A72E3B1C4A0EB300DEF741 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977539CB3D367929FBF2E146 /* Pods-MoveMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MoveMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.MoveMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		D0A72E3C1C4A0EB300DEF741 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C45B87F262BC4E7006D52FC /* Pods-MoveMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MoveMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.MoveMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

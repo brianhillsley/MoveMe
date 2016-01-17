@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MovieViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -14,9 +15,12 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     var movies: [NSDictionary]?
     
+    var dbEndpoint: String!
+    
+    // Grab data from movie database
     func networkRequestToMoviesDB(){
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(dbEndpoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -39,6 +43,11 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
                 }
         });
         task.resume()
+    }
+    
+    // Called on refresh
+    func didRefresh(){
+        networkRequestToMoviesDB() // Grab data from movie database
     }
     
     override func viewDidLoad() {
@@ -78,9 +87,18 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         
+        // Grab the SINGLE SELECTED MOVIE to use as reference
         let movieDictionary = movies![indexPath.row]
-        cell.movieTitle!.text = "\(movieDictionary["title"]!)"
         
+        // Constants related to image URL creation
+        let imgReqWidth = 150
+        let baseUrl = "http://image.tmdb.org/t/p/w\(imgReqWidth)"
+        
+        // safer way of handling a dictionary that may or may not exist
+        if let posterPath = movieDictionary["poster_path"] as? String {
+            let imgCompleteUrl = NSURL(string: baseUrl + posterPath)!
+            cell.posterView.setImageWithURL(imgCompleteUrl)
+        }
         return cell
     }
     
@@ -93,15 +111,16 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
         
         let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
         let indexPath = indexPaths[0] as NSIndexPath
-        
+        let movie = movies![indexPath.row]
         let vc = segue.destinationViewController as! DetailViewController
         
+        // Get the new view controller using segue.destinationViewController.
         // vc.imageView = movies[indexPath.row]!.imageView
-        // vc.title = movies[indexPath.row]!.title
+        vc.movie = movie
+        
         
     }
     
