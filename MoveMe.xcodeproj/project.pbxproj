@@ -10,6 +10,7 @@
 		9F2B5DAC64876F65BF2ECE48 /* Pods_MoveMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC931A20460E23148EC751A3 /* Pods_MoveMe.framework */; };
 		D052930F1C4AB70A00EEF1EA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052930E1C4AB70900EEF1EA /* MovieCell.swift */; };
 		D05293111C4AB7CC00EEF1EA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05293101C4AB7CC00EEF1EA /* DetailViewController.swift */; };
+		D05CFF1E1C4B1600002E1D57 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D05CFF1D1C4B1600002E1D57 /* README.txt */; };
 		D0A72E2C1C4A0EB300DEF741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A72E2B1C4A0EB300DEF741 /* AppDelegate.swift */; };
 		D0A72E311C4A0EB300DEF741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A72E2F1C4A0EB300DEF741 /* Main.storyboard */; };
 		D0A72E331C4A0EB300DEF741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A72E321C4A0EB300DEF741 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		AC931A20460E23148EC751A3 /* Pods_MoveMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D052930E1C4AB70900EEF1EA /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieCell.swift; path = ../MovieCell.swift; sourceTree = "<group>"; };
 		D05293101C4AB7CC00EEF1EA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		D05CFF1D1C4B1600002E1D57 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		D0A72E281C4A0EB300DEF741 /* MoveMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A72E2B1C4A0EB300DEF741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A72E301C4A0EB300DEF741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		D0A72E1F1C4A0EB300DEF741 = {
 			isa = PBXGroup;
 			children = (
+				D05CFF1D1C4B1600002E1D57 /* README.txt */,
 				D0A72E2A1C4A0EB300DEF741 /* MoveMe */,
 				D0A72E291C4A0EB300DEF741 /* Products */,
 				9EF908B8E35F091104E49036 /* Pods */,
@@ -174,6 +177,7 @@
 			files = (
 				D0A72E361C4A0EB300DEF741 /* LaunchScreen.storyboard in Resources */,
 				D0A72E331C4A0EB300DEF741 /* Assets.xcassets in Resources */,
+				D05CFF1E1C4B1600002E1D57 /* README.txt in Resources */,
 				D0A72E311C4A0EB300DEF741 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
