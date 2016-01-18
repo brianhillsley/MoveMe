@@ -9,9 +9,13 @@
 import UIKit
 import AFNetworking
 
-class MovieViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MovieViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,
+    UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var filteredMovies: [NSDictionary]?
     
     var movies: [NSDictionary]?
     
@@ -34,9 +38,10 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
                     // From JSON to NSDictionary
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            NSLog("response: \(responseDictionary)")
+                            //NSLog("response: \(responseDictionary)")
                             // Set the results of the network request to be the array of movies
-                            self.movies = responseDictionary["results"] as! [NSDictionary]
+                            self.movies = (responseDictionary["results"] as! [NSDictionary])
+                            self.filteredMovies = (responseDictionary["results"] as! [NSDictionary])
                             // RELOAD the collection view
                             self.collectionView.reloadData()
                     }
@@ -44,6 +49,15 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
         });
         task.resume()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
+        filteredMovies = searchText.isEmpty ? movies: movies!.filter({(mov: NSDictionary) -> Bool in
+            let movStr:String! = mov["title"] as! String
+            return  movStr.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+            })
+        collectionView.reloadData()
+    }
+    
     
     // Called on refresh
     func didRefresh(){
@@ -55,6 +69,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        searchBar.delegate = self
         
         // Call to MOVIE DATABASE
         networkRequestToMoviesDB()
@@ -70,14 +85,14 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // From UICollectionViewDataSource protocol
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        // MAke sure movies is not nil
-        if let movies = movies {
-            return movies.count
+        if filteredMovies != nil {
+            return filteredMovies!.count
+        }
+        if movies != nil {
+            return movies!.count
         }
         return 0
-        
-    }
+        }
     
     
     // From UICollectionViewDataSource protocol
@@ -86,9 +101,12 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
-        
+        cell.backgroundColor = UIColor.darkGrayColor()
         // Grab the SINGLE SELECTED MOVIE to use as reference
-        let movieDictionary = movies![indexPath.row]
+        
+
+        let movieDictionary = filteredMovies![indexPath.row]
+        
         
         // Constants related to image URL creation
         let imgReqWidth = 150
@@ -112,17 +130,16 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-        let indexPath = indexPaths[0] as NSIndexPath
-        let movie = movies![indexPath.row]
-        let vc = segue.destinationViewController as! DetailViewController
-        
-        // Get the new view controller using segue.destinationViewController.
-        // vc.imageView = movies[indexPath.row]!.imageView
-        vc.movie = movie
-        
+        if(segue.identifier == "showMovieDetails"){
+            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
+            let indexPath = indexPaths[0] as NSIndexPath
+            let movie = filteredMovies![indexPath.row]
+            let vc = segue.destinationViewController as! DetailViewController
+            
+            // Get the new view controller using segue.destinationViewController.
+            // vc.imageView = movies[indexPath.row]!.imageView
+            vc.movie = movie
+        }
         
     }
-    
-
 }
