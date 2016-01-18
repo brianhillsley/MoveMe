@@ -17,9 +17,9 @@ The following **optional** features are implemented:
 
 - [ ] User sees an error message when there's a networking error.
 - [x] Movies are displayed using a CollectionView instead of a TableView.
-- [ ] User can search for a movie.
+- [x] User can search for a movie.
 - [ ] All images fade in as they are loading.
-- [ ] Customize the UI.
+- [x] Customize the UI.
 
 The following **additional** features are implemented:
 
@@ -60,7 +60,7 @@ limitations under the License.
 
 MoveMe is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: 10 hours spent in total
+Time spent: 20 hours spent in total (I spent a lot of time researching more topics)
 
 ## User Stories
 
@@ -68,7 +68,7 @@ The following **required** functionality is completed:
 
 - [x] User can view movie details by tapping on a cell.
 - [x] User can select from a tab bar for either **Now Playing** or **Top Rated** movies.
-- [ ] Customize the selection effect of the cell.
+- [x] Customize the selection effect of the cell.
 
 The following **optional** features are implemented:
 
@@ -77,13 +77,12 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
-
+- [x] Made my own icons for now playing and top rated tabs.
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/tBzHxrD.gif' title='Video Walkthrough of Project 2: MoveMe App' width='' alt='Video Walkthrough  of Project 2: MoveMe App' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -94,6 +93,9 @@ Describe any challenges encountered while building the app.
 I actually redid the whole application due to a file system messup. I saw redoing both part 1 and part 2 of this project as extra review. So being patient and redoing the application was the hard part. For that reason the time spent on Project 1 has been increased to reflect redoing that part to include some of the extra features.
 
 Additionally, CocoaPods, the dependency manager, continues to give me a hard time as I need to reinstall it on every reboot, which I have done 3 times. Something to do with permissions and security of OS El Capitan and Ruby Gems made it so I had to try several ways to install cocoapods.
+
+Also,
+I also customized the UI to include the search bar which was a part of the extra credit of from the flicks-app part 1 (last week).
 
 ## License
 

@@ -21,6 +21,8 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     var dbEndpoint: String!
     
+
+    
     // Grab data from movie database
     func networkRequestToMoviesDB(){
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -48,6 +50,27 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
                 }
         });
         task.resume()
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        filteredMovies = searchBar.text!.isEmpty ? movies: movies!.filter({(mov: NSDictionary) -> Bool in
+            let movStr:String! = mov["title"] as! String
+            return  movStr.rangeOfString(searchBar.text!, options: .CaseInsensitiveSearch) != nil
+        })
+        collectionView.reloadData()
+        
+        
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
