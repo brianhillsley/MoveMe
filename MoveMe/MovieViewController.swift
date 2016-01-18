@@ -25,6 +25,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // Grab data from movie database
     func networkRequestToMoviesDB(){
+        
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(dbEndpoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
@@ -131,17 +132,64 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
         let movieDictionary = filteredMovies![indexPath.row]
         
         
-        // Constants related to image URL creation
-        let imgReqWidth = 150
-        let baseUrl = "http://image.tmdb.org/t/p/w\(imgReqWidth)"
-        
-        // safer way of handling a dictionary that may or may not exist
-        if let posterPath = movieDictionary["poster_path"] as? String {
-            let imgCompleteUrl = NSURL(string: baseUrl + posterPath)!
-            cell.posterView.setImageWithURL(imgCompleteUrl)
+            
+            // safer way of handling a dictionary that may or may not exist
+            if let posterPath = movieDictionary["poster_path"] as? String {
+            
+            // Constants related to image URL creation
+            let lowResWidth = 150
+            let highResWidth = 600
+            let smallImageUrl = (string: "http://image.tmdb.org/t/p/w\(lowResWidth)"+posterPath)
+            let largeImageUrl = (string:"http://image.tmdb.org/t/p/w\(highResWidth)"+posterPath)
+            // Update or download image URL for the selected movie cell
+            
+
+                let smallImageRequest = NSURLRequest(URL: NSURL(string: smallImageUrl)!)
+                let largeImageRequest = NSURLRequest(URL: NSURL(string: largeImageUrl)!)
+                
+                cell.posterView.setImageWithURLRequest(
+                    smallImageRequest,
+                    placeholderImage: nil,
+                    success: { (smallImageRequest, smallImageResponse, smallImage) -> Void in
+                        
+                        
+                        // smallImageResponse will be nil if the smallImage is already available
+                        // in cache (might want to do something smarter in that case).
+                        cell.posterView.alpha = 0.0
+                        cell.posterView.image = smallImage;
+                        
+                        UIView.animateWithDuration(0.3, animations: { () -> Void in
+                            
+                            cell.posterView.alpha = 1.0
+                            
+                            }, completion: { (sucess) -> Void in
+                                
+                                // The AFNetworking ImageView Category only allows one request to be sent at a time
+                                // per ImageView. This code must be in the completion block.
+                                cell.posterView.setImageWithURLRequest(
+                                    largeImageRequest,
+                                    placeholderImage: smallImage,
+                                    success: { (largeImageRequest, largeImageResponse, largeImage) -> Void in
+                                        
+                                        cell.posterView.image = largeImage;
+                                        
+                                    },
+                                    failure: { (request, response, error) -> Void in
+                                        // do something for the failure condition of the large image request
+                                        // possibly setting the ImageView's image to a default image
+                                })
+                        })
+                    },
+                    failure: { (request, response, error) -> Void in
+                        // do something for the failure condition
+                        // possibly try to get the large image
+                })
+            }
+            return cell
         }
-        return cell
-    }
+
+    
+
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         // load detailed view controller
@@ -157,11 +205,15 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
             let movie = filteredMovies![indexPath.row]
-            let vc = segue.destinationViewController as! DetailViewController
+            let vc:DetailViewController = segue.destinationViewController as! DetailViewController
             
             // Get the new view controller using segue.destinationViewController.
             // vc.imageView = movies[indexPath.row]!.imageView
             vc.movie = movie
+            
+            // Copy over the poster instead of re-fetching it.
+            // If the high resolution one was already downloaded, then it won't need to do it again in the detailed view controller
+            //vc.posterView = (collectionView.cellForItemAtIndexPath(indexPaths[0] as NSIndexPath) as! MovieCell).posterView.mutableCopy() as! UIImageView
         }
         
     }

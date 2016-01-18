@@ -32,16 +32,19 @@ class DetailViewController: UIViewController {
         let overview = movie["overview"] as? String
         movieDescriptionLabel.text = overview
         
-        // Constants related to image URL creation
-        let imgReqWidth = 320
-        let baseUrl = "http://image.tmdb.org/t/p/w\(imgReqWidth)"
+       // if(posterView == nil) { // If the poster view was already aquired then skip that step
+            
         
-        // safer way of handling a dictionary that may or may not exist
-        if let posterPath = movie["poster_path"] as? String {
-            let imgCompleteUrl = NSURL(string: baseUrl + posterPath)!
-            self.posterView.setImageWithURL(imgCompleteUrl)
-        }
-
+            // Constants related to image URL creation
+            let imgReqWidth = 600
+            let baseUrl = "http://image.tmdb.org/t/p/w\(imgReqWidth)"
+            
+            // safer way of handling a dictionary that may or may not exist
+            if let posterPath = movie["poster_path"] as? String {
+                let imgCompleteUrl = NSURL(string: baseUrl + posterPath)!
+                self.posterView.setImageWithURL(imgCompleteUrl)
+            }
+      //  }
         
         // Do any additional setup after loading the view.
     }
