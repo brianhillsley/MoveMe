@@ -113,4 +113,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[MoveMe App Part 2 (part of CodePath)](http://i.imgur.com/tBzHxrD.gif)
+![MoveMe App Part 2 (part of CodePath)](http://i.imgur.com/tBzHxrD.gif)
