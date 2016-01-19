@@ -82,7 +82,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/tBzHxrD.gif' title='Video Walkthrough of Project 2: MoveMe App' width='' alt='Video Walkthrough  of Project 2: MoveMe App' />
+<img src='http://i.imgur.com/tBzHxrD.gif' title='Video Walkthrough of Project 2: MoveMe App' alt='Video Walkthrough  of Project 2: MoveMe App' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
