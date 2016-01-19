@@ -113,4 +113,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-![](http://i.imgur.com/Ssfp7.gif)
+![](http://i.imgur.com/tBzHxrD.gif)
