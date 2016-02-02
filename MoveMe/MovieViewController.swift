@@ -37,6 +37,7 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
             completionHandler: { (dataOrNil, response, error) in
+                
                 if let data = dataOrNil {
                     // From JSON to NSDictionary
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
@@ -85,11 +86,18 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // Called on refresh
     func didRefresh(){
+        print("Did refresh method was called")
         networkRequestToMoviesDB() // Grab data from movie database
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        // Add the UIRefreshControl to the CollectionView
+        collectionView.insertSubview(refreshControl, atIndex: 0)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -100,6 +108,40 @@ class MovieViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    // Makes a network request to get updated data
+    // Updates the tableView with the new data
+    // Hides the RefreshControl
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(dbEndpoint)?api_key=\(apiKey)")
+        let request = NSURLRequest(URL: url!)
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                
+                if let data = dataOrNil {
+                    // From JSON to NSDictionary
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            //NSLog("response: \(responseDictionary)")
+                            // Set the results of the network request to be the array of movies
+                            self.movies = (responseDictionary["results"] as! [NSDictionary])
+                            self.filteredMovies = (responseDictionary["results"] as! [NSDictionary])
+                            // RELOAD the collection view
+                            self.collectionView.reloadData()
+                    }
+                }
+                refreshControl.endRefreshing()
+        });
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {

@@ -90,6 +90,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QHA-tA-Vor">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
                                     </imageView>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" id="umm-dI-1OQ">
                                         <rect key="frame" x="0.0" y="568" width="320" height="148"/>
