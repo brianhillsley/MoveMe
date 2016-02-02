@@ -16,6 +16,7 @@
 		D0A72E331C4A0EB300DEF741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A72E321C4A0EB300DEF741 /* Assets.xcassets */; };
 		D0A72E361C4A0EB300DEF741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A72E341C4A0EB300DEF741 /* LaunchScreen.storyboard */; };
 		D0A72E3E1C4A0F2900DEF741 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A72E3D1C4A0F2900DEF741 /* MovieViewController.swift */; };
+		D0A9D49B1C606171005EDDC1 /* MoveMe_walkthru.gif in Resources */ = {isa = PBXBuildFile; fileRef = D0A9D49A1C606171005EDDC1 /* MoveMe_walkthru.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D0A72E351C4A0EB300DEF741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0A72E371C4A0EB300DEF741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0A72E3D1C4A0F2900DEF741 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		D0A9D49A1C606171005EDDC1 /* MoveMe_walkthru.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = MoveMe_walkthru.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		D0A72E1F1C4A0EB300DEF741 = {
 			isa = PBXGroup;
 			children = (
+				D0A9D49A1C606171005EDDC1 /* MoveMe_walkthru.gif */,
 				D05CFF1D1C4B1600002E1D57 /* README.txt */,
 				D0A72E2A1C4A0EB300DEF741 /* MoveMe */,
 				D0A72E291C4A0EB300DEF741 /* Products */,
@@ -175,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A9D49B1C606171005EDDC1 /* MoveMe_walkthru.gif in Resources */,
 				D0A72E361C4A0EB300DEF741 /* LaunchScreen.storyboard in Resources */,
 				D0A72E331C4A0EB300DEF741 /* Assets.xcassets in Resources */,
 				D05CFF1E1C4B1600002E1D57 /* README.txt in Resources */,
