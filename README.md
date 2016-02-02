@@ -28,8 +28,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+![gif walkthru](http://i.imgur.com/aX91KL3.gif)
 <img src='http://i.imgur.com/aX91KL3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='http://vignette1.wikia.nocookie.net/animalcrossing/images/c/c9/Penguin-slap-o.gif/revision/20140601023742' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
